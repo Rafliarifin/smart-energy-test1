@@ -847,6 +847,29 @@
 .btn-delete {
     background-color: #e74c3c;
 }
+
+        /* ... (CSS Anda yang sudah ada) ... */
+
+.btn-delete {
+    background-color: #e74c3c;
+}
+
+/* Tombol baru untuk Hapus Akun di halaman profil */
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+/* Teks untuk pesan error validasi */
+.text-danger {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
     </style>
 </head>
 <body>
@@ -895,14 +918,24 @@
                 <h1 id="pageTitle">@yield('title')</h1>
             </div>
             <div class="header-right">
-                <div class="user-avatar">JD</div>
-                {{-- Form untuk logout yang aman --}}
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <a href="{{ route('logout') }}" class="logout-btn" 
-                       onclick="event.preventDefault(); this.closest('form').submit();">
-                        Keluar
+                {{-- 1. Avatar sekarang adalah sebuah link ke halaman profil --}}
+                 <a href="{{ route('profile.edit') }}" title="Lihat Profil">
+                    <div class="user-avatar">
+                    {{-- Ikon SVG untuk profil --}}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                 </svg>
+                </div>
                     </a>
+
+                {{-- 2. Tombol Logout tetap sama --}}
+                <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="{{ route('logout') }}" class="logout-btn" 
+                onclick="event.preventDefault(); this.closest('form').submit();">
+                Keluar
+                </a>
                 </form>
             </div>
         </header>
