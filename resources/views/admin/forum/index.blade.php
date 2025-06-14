@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="stat-card">
-    <h3 class="chart-title">Daftar Semua Topik Forum</h3>
+    <h3 class="chart-title">Daftar Semua Topik Forum</h3><br>
     <p class="panel-description">Anda dapat melihat dan menghapus topik yang tidak sesuai dari daftar di bawah ini.</p>
 
     @if(session('success'))
@@ -31,12 +31,22 @@
                         <td>{{ $post->user->nama_lengkap }}</td>
                         <td>{{ $post->replies->count() }}</td>
                         <td>{{ $post->created_at->format('d M Y, H:i') }}</td>
-                        <td>
-                            <form action="{{ route('admin.forum.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus topik ini? Ini akan menghapus semua balasannya juga.');">
+                        <td style="display: flex; gap: 0.5rem; align-items: center;">
+
+                                {{-- Tombol Baru untuk Melihat & Membalas --}}
+                                    <a href="{{ route('forum.show', $post->id) }}" class="btn-sm" style="text-decoration:none; color:white; background-color: #3498db;" >
+                                        Lihat & Balas
+                                    </a>
+                                
+                                    <a href="{{ route('forum.edit', $post->id) }}" class="btn-sm btn-edit" style="text-decoration:none; color:white;">
+                                        Edit
+                                    </a>
+                                {{-- Tombol Hapus yang sudah ada --}}
+                                <form action="{{ route('admin.forum.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus topik ini? Ini akan menghapus semua balasannya juga.');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn-sm btn-delete">Hapus</button>
-                            </form>
+                                </form>
                         </td>
                     </tr>
                 @empty

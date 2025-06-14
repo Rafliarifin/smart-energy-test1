@@ -13,11 +13,9 @@
         <div class="sidebar-header">
             <div class="logo">SmartEnergy</div>
             <div class="user-info">
-    {{-- Mengambil nama lengkap dari user yang terautentikasi --}}
-    {{-- Sesuai dengan field 'nama_lengkap' pada class diagram Anda [cite: 82] --}}
-    <h3>{{ Auth::user()->nama_lengkap }}</h3> 
-    <p>Pengguna Premium</p>
-</div>
+                <h3>{{ Auth::user()->nama_lengkap }}</h3> 
+                <p>{{ ucfirst(Auth::user()->role) }}</p>
+            </div>
         </div>
         <nav class="sidebar-nav">
     {{-- Tampilkan menu ini HANYA JIKA role user adalah 'admin' --}}
@@ -115,16 +113,15 @@
     {{-- SEMUA FUNGSI (JAVASCRIPT) DITEMPATKAN DI SINI AGAR TERSEDIA GLOBAL --}}
     {{-- Letakkan di bagian bawah file resources/views/layouts/app.blade.php --}}
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-
-    // --- FUNGSI DASAR: MENU TOGGLE UNTUK MOBILE ---
-    const sidebar = document.getElementById('sidebar');
-    const menuToggle = document.getElementById('menuToggle');
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('open');
-        });
-    }
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- FUNGSI DASAR: MENU TOGGLE UNTUK MOBILE (GLOBAL) ---
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.getElementById('menuToggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('open');
+                });
+            }
 
     // --- FUNGSI Halaman Dashboard: Inisialisasi Grafik ---
 
@@ -193,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="result-value">${totalMonthlyKWh.toFixed(2)} kWh</div>
                     <div class="result-label" style="font-size: 1rem; margin-top: 1rem;">Estimasi Biaya Bulanan</div>
                     <div class="result-value" style="font-size: 2rem;">Rp ${new Intl.NumberFormat('id-ID').format(estimatedMonthlyCost.toFixed(0))}</div>
-                </div>`;
+                </div><br>`;
 
             let recommendationsHTML = '<h3 style="margin-bottom: 1.5rem; color: #2c3e50;">Rekomendasi Penghematan</h3>';
             if (totalMonthlyKWh > 300) {
@@ -261,6 +258,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @stack('scripts')
-@yield('scripts')
+
 </body>
 </html>

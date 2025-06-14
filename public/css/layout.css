@@ -867,3 +867,30 @@
 .tab-content.active {
     display: block; /* Tampilkan hanya panel yang memiliki kelas 'active' */
 }
+/* Style untuk kotak penjelasan di kalkulator */
+.explanation-box {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+.explanation-box h4 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.75rem;
+}
+.explanation-box p, .explanation-box li {
+    color: #555;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+.explanation-box strong {
+    color: #333;
+}
+.explanation-box ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}

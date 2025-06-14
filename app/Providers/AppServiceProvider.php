@@ -21,15 +21,15 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     // app/Providers/AppServiceProvider.php
-public function boot(): void
-{
-    Gate::define('update-post', function (User $user, Post $post) {
-        return $user->id === $post->user_id;
+    public function boot(): void
+    {   
+        Gate::define('update-post', function (User $user, Post $post) {
+        return $user->id === $post->user_id || $user->role === 'admin';
     });
 
-    // TAMBAHKAN GATE BARU INI
-    Gate::define('delete-post', function (User $user, Post $post) {
-        return $user->id === $post->user_id;
+
+        Gate::define('delete-post', function (User $user, Post $post) {
+        return $user->id === $post->user_id || $user->role === 'admin';
     });
-}
+    }
 }
