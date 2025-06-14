@@ -41,20 +41,26 @@ class ProfileController extends Controller
      * Delete the user's account.
      */
     public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
+{
+    // 1. Validasi password untuk memastikan ini benar-benar pemilik akun
+    $request->validateWithBag('userDeletion', [
+        'password' => ['required', 'current_password'],
+    ]);
 
-        $user = $request->user();
+    // 2. Simpan instance user saat ini ke dalam variabel
+    $user = $request->user();
 
-        Auth::logout();
+    // 3. Logout pengguna dari sesi saat ini
+    Auth::logout();
 
-        $user->delete();
+    // 4. Hapus data pengguna dari database
+    $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+    // 5. Batalkan sesi dan buat token baru untuk keamanan
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
 
-        return Redirect::to('/');
-    }
+    // 6. Alihkan ke halaman utama (welcome page)
+    return Redirect::to('/');
+}
 }

@@ -45,4 +45,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    // Tambahkan relasi ini di dalam class User
+// User bisa membuat banyak post
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+// User bisa membuat banyak balasan
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }
