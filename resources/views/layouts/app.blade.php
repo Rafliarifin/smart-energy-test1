@@ -260,6 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 </script>
+@stack('scripts')
 @yield('scripts')
 </body>
 </html>

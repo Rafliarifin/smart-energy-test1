@@ -48,6 +48,6 @@
             </tbody>
         </table>
     </div>
-    <div style="margin-top: 1.5rem;">{{ $dashboardData->links() }}</div>
+    <!-- <div style="margin-top: 1.5rem;">{{ $dashboardData->links() }}</div> -->
 </div>
 @endsection

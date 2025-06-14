@@ -13,6 +13,9 @@ class DashboardDataController extends Controller
      */
    public function index()
     {
+         $dashboardData = DashboardData::latest('period_date')->paginate(15);
+        return view('admin.data.index', compact('dashboardData'));
+
         if (auth()->user()->role === 'admin') {
             return redirect()->route('admin.dashboard');
         }
