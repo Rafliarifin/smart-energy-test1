@@ -68,7 +68,7 @@ Route::middleware(['auth', AdminMiddleware::class])->prefix('admin')->name('admi
 
     Route::resource('faq', AdminFaqController::class);
 
-    Route::resource('data', \App\Http\Controllers\Admin\DashboardDataController::class)->names('admin.data');
+    Route::resource('data', \App\Http\Controllers\Admin\DashboardDataController::class);
 });
 
 
