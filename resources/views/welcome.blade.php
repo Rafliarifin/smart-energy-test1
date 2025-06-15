@@ -131,33 +131,7 @@
                     <h3>SmartEnergy</h3>
                     <p>Platform digital terdepan untuk pemantauan konsumsi energi dan edukasi energi bersih di Indonesia.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Fitur</h3>
-                    <ul>
-                        <li><a href="#">Dashboard Energi</a></li>
-                        <li><a href="#">Kalkulator Energi</a></li>
-                        <li><a href="#">Forum Diskusi</a></li>
-                        <li><a href="#">FAQ Energi</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Dukungan</h3>
-                    <ul>
-                        <li><a href="#">Panduan Pengguna</a></li>
-                        <li><a href="#">Pusat Bantuan</a></li>
-                        <li><a href="#">Kontak Support</a></li>
-                        <li><a href="#">Lapor Bug</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Tentang</h3>
-                    <ul>
-                        <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Tim Developer</a></li>
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                    </ul>
-                </div>
+
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 SmartEnergy. Dikembangkan oleh Tim Ilmu Komputer Universitas Halu Oleo. Semua hak dilindungi.</p>

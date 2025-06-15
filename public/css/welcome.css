@@ -436,3 +436,14 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+.footer-section {
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* jarak antar tombol */
+    margin-top: 20px;
+}
